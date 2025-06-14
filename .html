@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Developer's Dashboard</title>
+  <script defer src="/static/script.js"></script>
+  <style>
+    body { font-family: Arial; margin: 40px; background: #f7f7f7; }
+    input, button { padding: 10px; margin: 5px 0; width: 240px; }
+    li { margin: 10px 0; background: #e0e0e0; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Developer's Dashboard</h1>
+
+  <input id="name" placeholder="Enter name"><br>
+  <input id="status" placeholder="Enter status (example Available)"><br>
+  <input id="mood" placeholder="Enter mood (example Happy)"><br>
+
+  <button onclick="addDeveloper()">Add Developer</button>
+  <button onclick="updateDeveloper()" id="updateBtn" style="display:none;">Update Developer</button>
+
+  <h2>List of Developer's</h2>
+  <ul id="devList"></ul>
+</body>
+</html>
