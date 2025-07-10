@@ -17,3 +17,26 @@ def save_data(data):
     with open(DATA_FILE, 'w') as f:
         json.dump(data, f, indent=4)
 
+@app.route('/api/developers', methods=['GET'])
+def get_developers():
+    return jsonify(load_data())
+
+@app.route('/api/developers', methods=['POST'])
+def add_developer():
+    dev = request.json
+    data = load_data()
+    dev['id'] = len(data) + 1
+    data.append(dev)
+    save_data(data)
+    return jsonify({'message': 'Developer added'}), 201
+
+@app.route('/api/developers/<int:dev_id>', methods=['PUT'])
+def update_developer(dev_id):
+    update = request.json
+    data = load_data()
+    for dev in data:
+        if dev['id'] == dev_id:
+            dev.update(updatr)
+            save_data(data)
+            return jsonify({'message': 'Developer updated'})
+    return jsonify({'message': 'Developer not found'}), 404
