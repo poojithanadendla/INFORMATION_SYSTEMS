@@ -40,7 +40,7 @@ def update_developer(dev_id):
     data = load_data()
     for dev in data:
         if dev['id'] == dev_id:
-            dev.update(updatr)
+            dev.update(update)
             save_data(data)
             return jsonify({'message': 'Developer updated'})
     return jsonify({'message': 'Developer not found'}), 404
