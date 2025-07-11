@@ -45,6 +45,7 @@ def update_developer(dev_id):
             return jsonify({'message': 'Developer updated'})
     return jsonify({'message': 'Developer not found'}), 404
 
+@app.route('/api/developers/<int:dev_id>', methods=['DELETE'])
 def delete_developer(dev_id):
     data = load_data()
     data = [dev for dev in data if dev['id'] != dev_id]
