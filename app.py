@@ -17,6 +17,10 @@ def save_data(data):
     with open(DATA_FILE, 'w') as f:
         json.dump(data, f, indent=4)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/api/developers', methods=['GET'])
 def get_developers():
     return jsonify(load_data())
