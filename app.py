@@ -49,7 +49,7 @@ def delete_developer(dev_id):
     data = load_data()
     data = [dev for dev in data if dev['id'] != dev_id]
     save_data(data)
-   return jsonify({'message': 'Developer deleted'})
+    return jsonify({'message': 'Developer deleted'})
 
 if __name__ == '__main__':
     app.run(debug=True)
